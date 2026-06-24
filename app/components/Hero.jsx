@@ -1,7 +1,12 @@
+import dynamic from 'next/dynamic'
+
+const HeroScene = dynamic(() => import('./three/HeroScene.jsx'), { ssr: false })
+
 export default function Hero() {
   return (
     <section className="hero">
       <div className="hero-bg" />
+      <div className="hero-3d"><HeroScene /></div>
       <div className="hero-grain" />
 
       <div className="perfs">

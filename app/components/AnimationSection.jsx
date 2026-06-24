@@ -1,3 +1,7 @@
+import dynamic from 'next/dynamic'
+
+const AnimReel = dynamic(() => import('./three/AnimReel.jsx'), { ssr: false })
+
 const TAGS = ['2D Animation', '3D Animation', 'Motion Design', 'VFX', 'Title Sequences']
 
 export default function AnimationSection() {
@@ -24,10 +28,7 @@ export default function AnimationSection() {
         </div>
         <div className="anim-right reveal reveal-delay">
           <div className="anim-visual">
-            <div className="orb-ring" />
-            <div className="orb-ring" />
-            <div className="orb-ring" />
-            <div className="orb-dot" />
+            <div className="anim-3d"><AnimReel /></div>
           </div>
           <div className="anim-badge">
             <strong>VRJ</strong>

@@ -99,6 +99,12 @@ nav {
   filter:blur(100px);
 }
 
+/* Three.js hero canvas — sits above the bg glow, below grain + content */
+.hero-3d {
+  position:absolute; inset:0; z-index:0; pointer-events:none;
+}
+.hero-3d canvas { display:block; }
+
 /* Grain */
 .hero-grain {
   position:absolute; inset:0; z-index:1; pointer-events:none; opacity:.55;
@@ -404,6 +410,10 @@ nav {
   background:linear-gradient(135deg, #0a0000 0%, #050010 100%);
 }
 
+/* Three.js animation-section reel */
+.anim-3d { position:absolute; inset:0; z-index:1; pointer-events:none; }
+.anim-3d canvas { display:block; }
+
 /* Orbital rings */
 .orb-ring {
   position:absolute; border-radius:50%; border:1px solid;
@@ -552,11 +562,23 @@ footer {
   .nav-links { display:none; }
   .hero, .films, .services, .anim-section, .cta-section, footer { padding-left:24px; padding-right:24px; }
   .films { padding-left:24px; }
+  .hero { padding-bottom:72px; }
+  .hero-reel { left:24px; top:96px; }
+  .hero-year { right:24px; }
   .services-intro, .anim-inner { grid-template-columns:1fr; gap:40px; }
   .stats-strip { grid-template-columns:1fr 1fr; }
   footer { grid-template-columns:1fr; gap:20px; text-align:center; }
   .footer-links { justify-content:center; }
   .cta-btns { flex-direction:column; align-items:center; }
+}
+
+@media(max-width:560px) {
+  /* The rotated year stamp + reel label crowd very narrow screens */
+  .hero-year { display:none; }
+  .hero-actions { flex-direction:column; align-items:flex-start; gap:14px; }
+  .stats-strip { grid-template-columns:1fr; }
+  .anim-tags { gap:8px; }
+  .film-card { flex-basis:230px; }
 }
 
 /* Hide custom cursor on touch devices */
